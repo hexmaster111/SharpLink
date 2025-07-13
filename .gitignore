@@ -1,3 +1,6 @@
-/.vscode
-/embed
-/loader
+.vscode
+.pio
+load_ez
+save_ez
+load_raw
+save_raw
