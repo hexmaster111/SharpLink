@@ -59,11 +59,14 @@ int main(int argc, char *argv[]) {
     
     int serial_fd = open_serial(argv[1]);
 
+    sleep(3);
+ 
+
     char line[1024];
     int lineno = 0;
     while (fgets(line, sizeof(line), in)) {
         char outbuf[1200];
-        snprintf(outbuf, sizeof(outbuf), "%d%s", lineno+=10, line);
+        snprintf(outbuf, sizeof(outbuf), "%d%s", lineno+=5, line);
         write(serial_fd, outbuf, strlen(outbuf));
         tcdrain(serial_fd); // Wait for transmission
     }
