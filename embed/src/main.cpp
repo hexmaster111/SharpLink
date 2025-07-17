@@ -18,17 +18,29 @@ SoftwareSerial SoftSerial(RX_PIN, TX_PIN, true); // RX, TX, inverse_logic = true
 
 void setup()
 {
-    Serial.begin(BAUD);
-    SoftSerial.begin(BAUD);
-    Serial.println("Link Started");
+  Serial.begin(BAUD);
+  SoftSerial.begin(BAUD);
+  Serial.println("Link Started");
+
+  while (Serial.available())
+  {
+    Serial.read();
+  }
+
+  while (SoftSerial.available())
+  {
+    SoftSerial.read();
+  }
 }
 
 void loop()
 {
-  if (Serial.available())  { // If data comes in from serial monitor (PC), send it out to softserial port
+  if (Serial.available())
+  { // If data comes in from serial monitor (PC), send it out to softserial port
     SoftSerial.write(Serial.read());
   }
-  if (SoftSerial.available())  { // If data comes in from softserial, send it out to serial monitor (PC)
+  if (SoftSerial.available())
+  { // If data comes in from softserial, send it out to serial monitor (PC)
     Serial.write(SoftSerial.read());
   }
 }

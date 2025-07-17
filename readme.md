@@ -1,5 +1,5 @@
 
-SHARP PC-G850 file loader for arduino uno
+SHARP PC-G850 file loader for arduino uno/nano
 
 ```
  *  GND (pin 3) __________________ GND
